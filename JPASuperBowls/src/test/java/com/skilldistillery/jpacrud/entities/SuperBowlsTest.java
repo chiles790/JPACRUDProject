@@ -29,7 +29,7 @@ class SuperBowlsTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		superbowls = em.find(SuperBowls.class, 1);
+		superbowls = em.find(SuperBowls.class, 34);
 	}
 
 	@AfterEach
@@ -41,7 +41,12 @@ class SuperBowlsTest {
 	@Test
 	void test_SuperBowls_entity_mapping() {
 		assertNotNull(superbowls);
-		assertEquals("Green Bay Packers", superbowls.getTeam1());
+		assertEquals("St. Louis Rams", superbowls.getWinner());
+		assertEquals(23, superbowls.getWinnerScore());
+		assertEquals("Tennessee Titans", superbowls.getLoser());
+		assertEquals(16, superbowls.getLoserScore());
+		assertEquals("Kurt Warner", superbowls.getMvp());
+		assertEquals("Georgia Dome", superbowls.getStadium());
 	}
 
 }

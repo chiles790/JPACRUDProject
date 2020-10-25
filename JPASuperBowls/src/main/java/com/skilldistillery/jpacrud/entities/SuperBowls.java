@@ -25,10 +25,25 @@ public class SuperBowls {
 	
 	private String mvp;
 	private String stadium;
+	
 
 	public SuperBowls() {
 		super();
 	}
+	
+
+	public SuperBowls(int id, String winner, int winnerScore, String loser, int loserScore, String mvp,
+			String stadium) {
+		super();
+		this.id = id;
+		this.winner = winner;
+		this.winnerScore = winnerScore;
+		this.loser = loser;
+		this.loserScore = loserScore;
+		this.mvp = mvp;
+		this.stadium = stadium;
+	}
+
 
 	public int getId() {
 		return id;
