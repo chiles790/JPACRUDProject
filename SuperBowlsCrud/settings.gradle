@@ -1,0 +1,3 @@
+rootProject.name = 'SuperBowlsCrud'
+
+includeFlat 'JPASuperBowls'
