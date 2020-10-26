@@ -24,7 +24,7 @@ public class SuperBowlDAOImpl implements SuperBowlDAO {
 	@Override
 	public List<SuperBowls> findAll() {
 		List<SuperBowls> superbowls = null;
-		String jpql = "SELECT sb FROM Superbowls sb";
+		String jpql = "SELECT s FROM Superbowls s";
 		superbowls = em.createQuery(jpql, SuperBowls.class).getResultList();
 		return superbowls;
 	}
@@ -33,7 +33,7 @@ public class SuperBowlDAOImpl implements SuperBowlDAO {
 	@Override
 	public SuperBowls create(SuperBowls superbowls) {
 		em.persist(superbowls);
-		return null;
+		return superbowls;
 	}
 
 	@Transactional
