@@ -22,8 +22,8 @@ public class SuperBowlDAOImpl implements SuperBowlDAO {
 
 	@Override
 	public List<SuperBowls> findAll() {
-		String jpql = "SELECT ";
-		return null;
+		String jpql = "SELECT * FROM SuperBowls";
+		return em.createQuery(jpql, SuperBowls.class).getResultList();
 	}
 
 	@Override
