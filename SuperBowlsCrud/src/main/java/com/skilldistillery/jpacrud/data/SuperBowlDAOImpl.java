@@ -54,7 +54,7 @@ public class SuperBowlDAOImpl implements SuperBowlDAO {
 	public boolean delete(int id) {
 		SuperBowls dsuper = em.find(SuperBowls.class, id);
 		em.remove(dsuper);
-		boolean isDeleted = !em.contains(dsuper);
+		boolean isDeleted =! em.contains(dsuper);
 		return isDeleted;
 	}
 

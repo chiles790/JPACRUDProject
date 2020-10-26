@@ -14,7 +14,7 @@
 <h3>Find SuperBowls between SuperBowl 34 and 53</h3>
 <form action="getSuper.do" method="GET">
 		Super Bowl Number: <input type="text" name="SB" /> 
-		<input type="submit" value="Show Game" />
+		<input type="submit" value="Submit" />
 			</form>
 	<a href="create.html">Add Future SuperBowls Mr/Miss Time Traveler</a>
 	<br>
@@ -23,13 +23,14 @@
 		  <tr>
 			<th>Super Bowl #</th>
 			<th>Winner</th>
+			<th>Loser</th>
 		  </tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${superbowls}" var="thebowl">
 				<tr>
 					<td> Super Bowl ${thebowl.id}</td>
-					<td><a href="getSuper.do?SB=${thebowl.id}">${thebowl.winner}</a></td>
+					<td><a href="getSuper.do?SB=${thebowl.id}">${thebowl.winner}, ${thebowl.loser}</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
