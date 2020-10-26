@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.skilldistillery.jpacrud.data.SuperBowlDAO;
 import com.skilldistillery.jpacrud.entities.SuperBowls;
@@ -30,9 +32,45 @@ public class SuperBowlController {
 	@RequestMapping(path="getSuper.do")
 	public String SuperBowls(Integer SB, Model model) {
 		SuperBowls superbowl = superbowlDao.findById(SB);
-		model.addAttribute("super", superbowl);
-		return "sb/show";
+		model.addAttribute("superbowl", superbowl);
+		return "show";
 		
+	}
+	@RequestMapping(path="update.do")
+	public ModelAndView updateGame(Integer id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("superbowl", superbowlDao.findById(id));
+		mv.setViewName("updatingsb");
+		return mv;
+	}
+	
+	@RequestMapping(path = "updatingsb.do")
+	public ModelAndView updatingsb(Integer id, String winner, int winnerScore, String loser, int loserScore, String mvp, String stadium) {
+		ModelAndView mv = new ModelAndView();
+		SuperBowls superbowl = superbowlDao.findById(id);
+		superbowl.setWinner(winner);
+		superbowl.setWinnerScore(winnerScore);
+		superbowl.setLoser(loser);
+		superbowl.setLoserScore(loserScore);
+		superbowl.setMvp(mvp);
+		superbowl.setStadium(stadium);
+		mv.setViewName("updated");
+		return mv;
+		
+	}
+	
+	
+	@RequestMapping(path ="delete.do")
+	public ModelAndView deleteGame(int id) {
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("superbowl", superbowlDao.delete(id));
+		mv.setViewName("delete");
+		return mv;
+	}
+	@RequestMapping(path="create.do", method = RequestMethod.GET)
+	public String createGame(Model model, SuperBowls superbowls) {
+		model.addAttribute("superbowl", superbowlDao.create(superbowls));
+		return "gameCreated";
 	}
 	
 }

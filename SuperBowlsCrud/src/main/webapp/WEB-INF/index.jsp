@@ -10,12 +10,14 @@
 </head>
 <body>
 <div class="container-fluid">
-<h1>Welcome to Super Bowl site</h1>
-<h3>Search by Super Bowl title number</h3>
+<h1>Welcome to Super Bowls in the 21s Century site</h1>
+<h3>Find SuperBowls between SuperBowl 34 and 53</h3>
 <form action="getSuper.do" method="GET">
-		Super Bowl Number: <input type="text" name="SB" /> <input type="submit"
-			value="Show Game" />
+		Super Bowl Number: <input type="text" name="SB" /> 
+		<input type="submit" value="Show Game" />
 			</form>
+	<a href="create.html">Add Future SuperBowls Mr/Miss Time Traveler</a>
+	<br>
 	<table class="table table-striped table-hover">
 		<thead class="thead thead-dark">
 		  <tr>
